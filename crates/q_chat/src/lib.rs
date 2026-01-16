@@ -197,7 +197,7 @@ const WELCOME_TEXT: &str = color_print::cstr! {"
 </cyan!>                                                        
 "};
 
-const SMALL_SCREEN_WECLOME_TEXT: &str = color_print::cstr! {"
+const SMALL_SCREEN_WELCOME_TEXT: &str = color_print::cstr! {"
 <em>Welcome to <cyan!>Amazon Q</cyan!>!</em>
 "};
 
@@ -727,7 +727,7 @@ impl ChatContext {
             execute!(
                 self.output,
                 style::Print(if is_small_screen {
-                    SMALL_SCREEN_WECLOME_TEXT
+                    SMALL_SCREEN_WELCOME_TEXT
                 } else {
                     WELCOME_TEXT
                 }),
@@ -2625,7 +2625,7 @@ impl ChatContext {
                         CONTEXT_WINDOW_SIZE / 1000
                     )),
                     style::SetForegroundColor(Color::DarkCyan),
-                    // add a nice visual to mimic "tiny" progress, so the overral progress bar doesn't look too
+                    // add a nice visual to mimic "tiny" progress, so the overall progress bar doesn't look too
                     // empty
                     style::Print("|".repeat(if context_width == 0 && *context_token_count > 0 {
                         1
